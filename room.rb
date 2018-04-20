@@ -1,13 +1,14 @@
 class Room
 
-  attr_reader(:name, :capacity)
-  attr_accessor(:number_of_guests, :song_list)
+  attr_reader(:name, :capacity, :entry_fee)
+  attr_accessor(:guests, :song_list)
 
-  def initialize(name, capacity, number_of_guests, song_list)
+  def initialize(name, capacity, song_list)
     @name = name
     @capacity = capacity
-    @number_of_guests = []
+    @guests = []
     @song_list = song_list
+    @entry_fee = 5
   end
 
 
@@ -25,5 +26,22 @@ class Room
   def add_song(song)
     @song_list.push(song)
   end
+
+  def number_of_guests
+    @guests.count
+  end
+
+  def check_in_guest(guest_name)
+    @guests.push(guest_name) unless @guests.count >= @capacity
+    if @guests.count >= @capacity
+      return "You're too late to the party! Try another room."
+    end
+  end
+
+  def check_out(guest_name)
+    @guests.delete(guest_name)
+  end
+
+
 
 end
