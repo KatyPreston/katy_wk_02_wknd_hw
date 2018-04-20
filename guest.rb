@@ -12,13 +12,10 @@ class Guest
     @wallet >= room.entry_fee
   end
 
+  def pay_entry_fee(fee)
+    @wallet -= fee
+  end
 
-#cant get this to work
-  # def take_fee
-  #   if can_afford_entry(room) == true
-  #     return @wallet -= 5
-  #   end
-  # end
 
 
 end

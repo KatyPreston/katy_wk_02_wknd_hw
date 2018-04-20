@@ -30,12 +30,10 @@ class GuestTest < MiniTest::Test
     assert_equal(true, @guest.can_afford_entry(@room))
   end
 
-#cant get this to work
-  # def test_take_money_on_entry
-  #   @guest2.can_afford_entry(@room)
-  #   @guest2.take_fee
-  #   assert_equal(2, @guest2.wallet)
-  # end
 
+  def test_entry_fee
+    @guest.pay_entry_fee(@room.entry_fee)
+    assert_equal(4, @guest.wallet)
+  end
 
 end
