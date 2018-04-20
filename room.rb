@@ -44,6 +44,7 @@ class Room
   end
 
   def collect_fee(guest)
+    guest.pay_entry_fee(@entry_fee)
     @till += @entry_fee
   end
 
