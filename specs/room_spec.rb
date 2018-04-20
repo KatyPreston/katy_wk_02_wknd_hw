@@ -62,5 +62,9 @@ class RoomTest < MiniTest::Test
     assert_equal("You're too late to the party! Try another room.", @room.check_in_guest(@guest2))
   end
 
+  def test_collects_entry_fee
+    @room.collect_fee(@guest1)
+    assert_equal(5, @room.till)
+  end
 
 end

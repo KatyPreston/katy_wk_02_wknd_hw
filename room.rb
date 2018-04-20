@@ -1,7 +1,7 @@
 class Room
 
   attr_reader(:name, :capacity, :entry_fee)
-  attr_accessor(:guests, :song_list)
+  attr_accessor(:guests, :song_list, :till)
 
   def initialize(name, capacity, song_list)
     @name = name
@@ -9,6 +9,7 @@ class Room
     @guests = []
     @song_list = song_list
     @entry_fee = 5
+    @till = 0
   end
 
 
@@ -42,6 +43,9 @@ class Room
     @guests.delete(guest_name)
   end
 
+  def collect_fee(guest)
+    @till += @entry_fee
+  end
 
 
 end
